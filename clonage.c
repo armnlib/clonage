@@ -32,3 +32,5 @@ main ()
   fputs(line4,stdout);
   nce = fwrite(buf,sizeof(char),ncl,stdout);
   }
+
+char * product_id_tag="$Id$";
