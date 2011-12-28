@@ -15,13 +15,13 @@ PROGRAM = clonage
 default: absolu
 
 .ftn.o:
-	r.compile -arch $(ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
+	r.compile -arch $(EC_ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
 
 .c.o:
-	r.compile -arch $(ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(CFLAGS)" -src $<
+	r.compile -arch $(EC_ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(CFLAGS)" -src $<
 
 .f.o:
-	r.compile -arch $(ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
+	r.compile -arch $(EC_ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
 
 OBJETS = clonage.o
 
@@ -47,9 +47,9 @@ all:	Linux SGI HP SX4 SX5
 
 
 absolu: $(OBJETS)
-	r.build -o $(PROGRAM)_$(ARCH) -obj $(OBJETS) -arch $(ARCH) -abi $(ABI) -conly
+	r.build -o $(PROGRAM)_$(EC_ARCH) -obj $(OBJETS) -arch $(EC_ARCH) -abi $(ABI) -conly
 	rm $(OBJETS)
 
 clean:
-	rm $(PROGRAM)_$(ARCH) $(OBJETS)
+	rm $(PROGRAM)_$(EC_ARCH) $(OBJETS)
 
