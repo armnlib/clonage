@@ -12,16 +12,18 @@ CPPFLAGS = -I$(ARMNLIB)/include
 
 PROGRAM = clonage
 
+VER = 102
+
 default: absolu
 
 .ftn.o:
-	r.compile -arch $(EC_ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
+	s.compile -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
 
 .c.o:
-	r.compile -arch $(EC_ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(CFLAGS)" -src $<
+	s.compile -abi $(ABI) $(OPTIMIZ) -opt "=$(CFLAGS)" -src $<
 
 .f.o:
-	r.compile -arch $(EC_ARCH) -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
+	s.compile -abi $(ABI) $(OPTIMIZ) -opt "=$(FFLAGS)" -src $<
 
 OBJETS = clonage.o
 
@@ -47,9 +49,9 @@ all:	Linux SGI HP SX4 SX5
 
 
 absolu: $(OBJETS)
-	r.build -o $(PROGRAM)_$(EC_ARCH) -obj $(OBJETS) -arch $(EC_ARCH) -abi $(ABI) -conly
+	s.compile -o $(PROGRAM)_$(VER)-$(BASE_ARCH) -obj $(OBJETS) -abi $(ABI) -conly
 	rm $(OBJETS)
 
 clean:
-	rm $(PROGRAM)_$(EC_ARCH) $(OBJETS)
+	rm $(PROGRAM)_$(VER)-$(BASE_ARCH) 
 
