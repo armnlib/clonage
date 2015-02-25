@@ -12,7 +12,7 @@ CPPFLAGS =
 
 PROGRAM = clonage
 
-VER = 103
+VER = 104
 
 default: absolu
 
